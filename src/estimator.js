@@ -14,11 +14,15 @@ const covid19ImpactEstimator = (data) => {
     data: given,
     impact: {
       currentlyInfected: given.reportedCases * 10,
-      infectionsByRequestedTime: (given.reportedCases * 10) * (2 ** time)
+      infectionsByRequestedTime: (given.reportedCases * 10) * (2 ** time),
+      severeCasesByRequestedTime: 0.15 * (given.reportedCases * 10) * (2 ** time),
+      hospitalBedsByRequestedTime: (0.35 * given.totalHospitalBeds) - (0.15 * (given.reportedCases * 10) * (2 ** time))
     },
     severeImpact: {
       currentlyInfected: given.reportedCases * 50,
-      infectionsByRequestedTime: (given.reportedCases * 50) * (2 ** time)
+      infectionsByRequestedTime: (given.reportedCases * 50) * (2 ** time),
+      severeCasesByRequestedTime: 0.15 * (given.reportedCases * 10) * (2 ** time),
+      hospitalBedsByRequestedTime: (0.35 * given.totalHospitalBeds) - (0.15 * (given.reportedCases * 10) * (2 ** time))
     }
   };
 };
