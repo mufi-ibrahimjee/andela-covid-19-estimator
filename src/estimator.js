@@ -12,10 +12,10 @@ const covid19ImpactEstimator = (data) => {
   }
   const cii = given.reportedCases * 10;
   const ibrti = cii * (2 ** time);
-  const scbrti = 0.15 * ibrti;
+  const scbrti = Math.floor(0.15 * ibrti);
   const cis = given.reportedCases * 50;
   const ibrts = cis * (2 ** time);
-  const scbrts = 0.15 * ibrts;
+  const scbrts = Math.floor(0.15 * ibrts);
 
   return {
     data: given,
