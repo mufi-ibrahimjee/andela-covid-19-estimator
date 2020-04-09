@@ -25,8 +25,8 @@ const covid19ImpactEstimator = (data) => {
       currentlyInfected: cii,
       infectionsByRequestedTime: ibrti,
       severeCasesByRequestedTime: scbrti,
-      hospitalBedsByRequestedTime: Math.floor((0.35 * given.totalHospitalBeds) - (scbrti)),
-      casesForICUByRequestedTime: Math.floor(0.05 * ibrti),
+      hospitalBedsByRequestedTime: Math.ceil((0.35 * given.totalHospitalBeds) - (scbrti)),
+      casesForICUByRequestedTime: Math.ceil(0.05 * ibrti),
       casesForVentilatorsByRequestedTime: Math.floor(0.02 * ibrti),
       dollarsInFlight: Math.floor(calci * given.avgDailyIncomeInUSD * (time * 3))
     },
