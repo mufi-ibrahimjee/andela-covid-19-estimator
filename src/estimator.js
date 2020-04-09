@@ -10,12 +10,12 @@ const covid19ImpactEstimator = (data) => {
   if (given.periodType === 'months') {
     time = Math.floor((given.timeToElapse * 30) / 3);
   }
-  let cii = given.reportedCases * 10;
-  let ibrti = cii * (2 ** time);
-  let scbrti = 0.15 * ibrti;
-  let cis = given.reportedCases * 50;
-  let ibrts = cis * (2 ** time);
-  let scbrts = 0.15 * ibrts;
+  const cii = given.reportedCases * 10;
+  const ibrti = cii * (2 ** time);
+  const scbrti = 0.15 * ibrti;
+  const cis = given.reportedCases * 50;
+  const ibrts = cis * (2 ** time);
+  const scbrts = 0.15 * ibrts;
 
   return {
     data: given,
