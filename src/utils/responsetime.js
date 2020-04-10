@@ -1,12 +1,14 @@
 const fs = require('fs');
 
 const saveLogs = (logs) => {
-  const dataJSON = logs + '\r\n';
+  const a = '\r\n';
+  const dataJSON = `${logs} ${a}`;
   fs.appendFileSync('logs.json', dataJSON);
 };
 const addLog = (method, path, statusCode, elapsedTimeInMs) => {
-  const log = method + '\t\t' + path + '\t\t';
-  const logs = log + statusCode + '\t\t' + elapsedTimeInMs + ' ' + 'ms';
+  const a = '\t\t';
+  const log = `${method} ${a} ${path} ${a}`;
+  const logs = `${log} ${statusCode} ${a} ${elapsedTimeInMs} ms`;
   saveLogs(logs);
 };
 function logResponseTime(req, res, next) {
