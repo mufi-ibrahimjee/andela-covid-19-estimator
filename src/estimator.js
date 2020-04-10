@@ -40,7 +40,7 @@ const covid19ImpactEstimator = (data) => {
       hospitalBedsByRequestedTime: Math.ceil((0.35 * given.totalHospitalBeds) - (scbrts)),
       casesForICUByRequestedTime: Math.ceil(0.05 * ibrts),
       casesForVentilatorsByRequestedTime: Math.ceil(0.02 * ibrts),
-      dollarsInFlight: Math.round(difhs* 100) / 100
+      dollarsInFlight: Math.round(difhs * 100) / 100
 
     }
   };
