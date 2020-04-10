@@ -19,8 +19,8 @@ const covid19ImpactEstimator = (data) => {
   const scbrts = 0.15 * ibrts;
   const calcs = ibrts * given.region.avgDailyIncomePopulation;
   const time1 = time * 3;
-  const difhi = parseFloat(((calci * given.region.avgDailyIncomeInUSD) / time1).toFixed(2));
-  const difhs = parseFloat(((calcs * given.region.avgDailyIncomeInUSD) / time1).toFixed(2));
+  const difhi = parseFloat(((calci * given.region.avgDailyIncomeInUSD) / time1).toFixed(0));
+  const difhs = parseFloat(((calcs * given.region.avgDailyIncomeInUSD) / time1).toFixed(0));
 
   return {
     data: given,
