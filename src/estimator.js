@@ -13,11 +13,11 @@ const covid19ImpactEstimator = (data) => {
   const cii = given.reportedCases * 10;
   const ibrti = cii * (2 ** time);
   const scbrti = Math.floor(0.15 * ibrti);
-  const calci = ibrti * given.region.avgDailyIncomePopulation;
+  const calci = Math.trunc(ibrti * given.region.avgDailyIncomePopulation);
   const cis = given.reportedCases * 50;
   const ibrts = cis * (2 ** time);
   const scbrts = Math.floor(0.15 * ibrts);
-  const calcs = ibrts * given.region.avgDailyIncomePopulation;
+  const calcs = Math.trunc(ibrts * given.region.avgDailyIncomePopulation);
   const time1 = time * 3;
   const difhi = Math.floor((calci * given.region.avgDailyIncomeInUSD) / time1);
   const difhs = Math.floor((calcs * given.region.avgDailyIncomeInUSD) / time1);
