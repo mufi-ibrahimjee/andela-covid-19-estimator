@@ -13,37 +13,39 @@ app.use(bodyParser.json());
 app.use(logResponseTime);
 
 app.post('/api/v1/on-covid-19', (req, res) => {
-  var start = new Date();
   if (!req.body) {
     return res.send({
       error: 'You must provide data!'
-    })
+    });
   }
   const a = covid19ImpactEstimator(req.body);
   res.send(a).status(200);
+  return 0;
 });
 
 app.post('/api/v1/on-covid-19/json', (req, res) => {
   if (!req.body) {
     return res.send({
       error: 'You must provide data!'
-    })
+    });
   }
   const a = covid19ImpactEstimator(req.body);
   res.send(a).status(200);
+  return 0;
 });
 
 app.post('/api/v1/on-covid-19/xml', (req, res) => {
   if (!req.body) {
     return res.send({
       error: 'You must provide data!'
-    })
+    });
   }
   const a = covid19ImpactEstimator(req.body);
-  const options = {compact: true, ignoreComment: true, spaces: 4};
+  const options = { compact: true, ignoreComment: true, spaces: 4 };
   const result = convert.json2xml(a, options);
   res.set('Content-Type', 'text/xml');
   res.send(result).status(200);
+  return 0;
 });
 
 app.get('/api/v1/on-covid-19/logs', (req, res) => {
@@ -51,10 +53,11 @@ app.get('/api/v1/on-covid-19/logs', (req, res) => {
     const dataBuffer = fs.readFileSync('logs.json');
     const dataJSON = dataBuffer.toString();
     res.send(JSON.parse(dataJSON));
-  } 
+  }
   catch (e) {
     res.send([]);
   }
+  return 0;
 });
 
 app.listen(port, () => {
@@ -106,4 +109,3 @@ const covid19ImpactEstimator = (data) => {
 };
 
 export default covid19ImpactEstimator;
-

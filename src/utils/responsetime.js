@@ -19,6 +19,6 @@ function logResponseTime(req, res, next) {
     }
   });
   next();
-};
+}
 
 module.exports = logResponseTime;
