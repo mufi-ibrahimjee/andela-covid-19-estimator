@@ -108,4 +108,4 @@ app.get('/api/v1/on-covid-19/logs', (req, res) => {
 app.listen(port, () => {
 });
 
-//export default covid19ImpactEstimator;
+export default covid19ImpactEstimator;
