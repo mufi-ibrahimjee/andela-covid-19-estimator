@@ -53,10 +53,10 @@ app.get('/api/v1/on-covid-19/logs', (req, res) => {
   try {
     const dataBuffer = fs.readFileSync('logs.json');
     const dataJSON = dataBuffer.toString();
-    res.send(JSON.parse(dataJSON));
     res.set('Content-Type', 'text/plain');
+    res.send(dataJSON);
   } catch (e) {
-    res.send([]);
+    res.send('');
   }
   return 0;
 });
