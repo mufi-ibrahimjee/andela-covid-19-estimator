@@ -3,7 +3,7 @@ const fs = require('fs');
 const bodyParser = require('body-parser');
 const convert = require('xml-js');
 const logResponseTime = require('./utils/responsetime');
-const covid19ImpactEstimator = require('./estimator.js')
+const covid19ImpactEstimator = require('./estimator.js');
 
 const app = express();
 const port = process.env.PORT || 3003;
