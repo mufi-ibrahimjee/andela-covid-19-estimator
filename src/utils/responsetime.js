@@ -11,14 +11,14 @@ function logResponseTime(req, res, next) {
   });
   next();
 }
-const addLog = (method, path, statusCode, elapsedTimeInMs) => {
-  const log = method + '\t\t' + path + '\t\t' 
-  const logs = log + statusCode + '\t\t' + elapsedTimeInMs + ' ' + "ms"
-  saveLogs(logs)
-}
 const saveLogs = (logs) => {
-  const dataJSON = logs + '\r\n'
-  fs.appendFileSync('logs.json', dataJSON)
+  const dataJSON = logs + '\r\n';
+  fs.appendFileSync('logs.json', dataJSON);
+}
+const addLog = (method, path, statusCode, elapsedTimeInMs) => {
+  const log = method + '\t\t' + path + '\t\t';
+  const logs = log + statusCode + '\t\t' + elapsedTimeInMs + ' ' + "ms";
+  saveLogs(logs);
 }
 
 module.exports = logResponseTime;
