@@ -17,7 +17,6 @@ function logResponseTime(req, res, next) {
   res.on('finish', () => {
     const elapsedHrTim = process.hrtime(startHrTime);
     const elapsedTimeInM = Math.round(elapsedHrTim[0] * 1000 + elapsedHrTim[1] / 1e6);
-    const elapsedHrTime = elapsedHrTim.toString();
     const elapsedTimeInMs = elapsedTimeInM.toString().padStart(2, 0);
     if (req.path === '/api/v1/on-covid-19/') {
       path = '/api/v1/on-covid-19';
